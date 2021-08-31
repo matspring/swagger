@@ -7,7 +7,7 @@
 	},
     "servers": [
 	  {
-	  "- url: 'http://delta/ords/apps'"
+	  "url": "http://delta/ords/apps"
 	  }
 	],
 	"host": "github.com/matspring",
@@ -16,7 +16,6 @@
 		"name": "engines/sae",
 		"description": "Everything about Soft Assignment Engine"
 	},
-	"schemes": ["https", "http"],
 	"paths": {
 		"/engines/sae": {
 			"post": {
