@@ -9,7 +9,7 @@
 	"basePath": "/swagger",
 	"tags": [{
 		"name": "sae",
-		"description": "Everything about your Pets"
+		"description": "Everything about Soft Assignment Engine"
 	}],
 	"schemes": ["https", "http"],
 	"paths": {
