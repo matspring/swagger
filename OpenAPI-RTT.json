@@ -1,0 +1,92 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "Reat Time Engine (RTT)",
+		"description": "creation of Real Time data and running of the Real Time engine",
+		"version": "0.1"
+	},
+	"servers": [{
+		"url": "http://delta/ords/apps"
+	}],
+	"paths": {
+		"/engines/sae": {
+			"post": {
+				"description": "Real Time Engine",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"SAE": {
+										"type": "array",
+										"items": {
+											"type": "object"
+										}
+									}
+								}
+							},
+							"examples": {
+								"1": {
+									"RTTInbound": {
+										"requestID": "90778",
+										"tableGroupID": 0,
+										"removePriorRecords": "N",
+										"investigateErrors": "Y",
+										"ICPriceMandatory": "N",
+										"transactions": [{
+												"sourceAssignmentName": "IBIS Real Time",
+												"transactionTable": "CUSTOMS",
+												"transactionType": "PICKED",
+												"transactionClass": "ALL",
+												"transactionRef": "MSS90687",
+												"transactionID": 90988,
+												"parentTrxID": 90985,
+												"transactionDate": "01-JAN-2021",
+												"currencyCode": "USD",
+												"attribute1": "01",
+												"attribute2": "03",
+												"attribute3": "Service",
+												"enteredDR": 250,
+												"enteredCR": 0
+											},
+											{
+												"sourceAssignmentName": "IBIS Real Time",
+												"transactionTable": "CUSTOMS",
+												"transactionType": "PICKED",
+												"transactionClass": "ALL",
+												"transactionRef": "MSS90690",
+												"transactionID": 90989,
+												"parentTrxID": 90985,
+												"transactionDate": "01-JAN-2021",
+												"currencyCode": "USD",
+												"attribute1": "01",
+												"attribute2": "03",
+												"attribute3": "Service",
+												"enteredDR": 250,
+												"enteredCR": 0
+											}
+										]
+									}
+								}
+							}
+						},
+						"responses": {
+							"201": {
+								"description": "Soft Assignment Engine successfully run",
+								"content": {
+									"text/plane": {
+										"schema": {
+											"type": "string"
+										},
+										"examples": {}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
