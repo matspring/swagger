@@ -10,12 +10,6 @@
 	  "url": "http://delta/ords/apps"
 	  }
 	],
-	"host": "github.com/matspring",
-	"basePath": "/swagger",
-	"tags": {
-		"name": "engines/sae",
-		"description": "Everything about Soft Assignment Engine"
-	},
 	"paths": {
 		"/engines/sae": {
 			"post": {
