@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "613b8477-4d3a-4ef2-a3d1-f9e8b2b03da0",
+		"name": "Delta: Test calls to VT engines",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get SAE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(request);\r",
+							"console.log(request.method);\r",
+							"console.log(request.responseBody);\r",
+							"\r",
+							"console.log(responseBody);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"SAEInbound\": {\r\n\t\t\"currencyCode\": \"USD\",\r\n\t\t\"parentTrxID\": \"99999\",\r\n\t\t\"transactionID\": \"99999\",\r\n\t\t\"transactionRef\": \"A-99999\",\r\n\t\t\"transactionTable\": \"MANUAL_REQ\",\r\n\t\t\"transactionType\": \"REQ\",\r\n\t\t\"transactionClass\": \"ALL\",\r\n\t\t\"transactionDate\": \"04-JAN-2021\",\r\n\t\t\"sourceAssignmentID\": \"9\",\r\n\t\t\"attribute1\": 1003,\r\n\t\t\"attribute2\": 1009,\r\n\t\t\"attribute3\": \"sdfsdf\",\r\n\t\t\"attribute4\": \"Product\",\r\n\t\t\"attribute5\": \"AR\",\r\n\t\t\"attribute6\": \"US\",\r\n\t\t\"attribute7\": \"IT\",\r\n\t\t\"attribute8\": \"\",\r\n\t\t\"attribute9\": \"Standard-NL\",\r\n\t\t\"attribute10\": 48\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://delta/ords/apps/engines/sae",
+					"protocol": "http",
+					"host": [
+						"delta"
+					],
+					"path": [
+						"ords",
+						"apps",
+						"engines",
+						"sae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Soft Assignment Engine (SAE)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SAEInbound\": {\r\n        \"trace\": \"Y\",\r\n        \"createRow\": \"Y\",\r\n        \"updateExistingRow\": \"N\",\r\n        \"currencyCode\": \"USD\",\r\n        \"parentTrxID\": \"999992\",\r\n        \"transactionID\": \"99999\",\r\n        \"transactionRef\": \"A-99999\",\r\n        \"transactionTable\": \"MANUAL_REQ\",\r\n        \"transactionType\": \"REQ\",\r\n        \"transactionClass\": \"ALL\",\r\n        \"transactionDate\": \"04-JAN-2021\",\r\n        \"sourceAssignmentID\": \"9\",\r\n        \"attribute1\": 1003,\r\n        \"attribute2\": 1009,\r\n        \"attribute3\": 1234,\r\n        \"attribute4\": \"Productx\",\r\n        \"attribute5\": \"AR\",\r\n        \"attribute6\": \"US\",\r\n        \"attribute7\": \"IT\",\r\n        \"attribute8\": \"\",\r\n        \"attribute9\": \"Standard-NL\",\r\n        \"attribute10\": 48\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://delta/ords/apps/engines/sae",
+					"protocol": "http",
+					"host": [
+						"delta"
+					],
+					"path": [
+						"ords",
+						"apps",
+						"engines",
+						"sae"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
