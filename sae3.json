@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Soft Assignment Engine (SAE)",
+    "description": "creation of Soft Assignment data and running of the Soft Assignment engine",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://github.com/matspring/"
+    }
+  ],
+  "paths": {
+    "/swagger": {
+      "post": {
+        "description": "Soft Assignment Engine",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SAE": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "1": {
+                  "value": {
+                "SAEInbound": 
+                {
+                "trace": "Y",
+                "createRow": "Y",
+                "updateExistingRow": "N",
+                "currencyCode": "USD",		
+                "parentTrxID": "999992",
+                "transactionID": "99999",
+                "transactionRef": "A-99999",
+                "transactionTable": "MANUAL_REQ",
+                "transactionType": "REQ",
+                "transactionClass": "ALL",
+                "transactionDate": "04-JAN-2021",
+                "sourceAssignmentID": "9",
+                "attribute1": 1003,
+                "attribute2": 1009,
+                "attribute3": 1234,
+                "attribute4": "Productx",
+                "attribute5": "AR",
+                "attribute6": "US",
+                "attribute7": "IT",
+                "attribute8": "",
+                "attribute9": "Standard-NL",
+                "attribute10": 48
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Soft Assignment Engine successfully run",
+            "content": {
+              "text/plane": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
