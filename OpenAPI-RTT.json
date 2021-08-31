@@ -1,7 +1,7 @@
 {
 	"openapi": "3.0.1",
 	"info": {
-		"title": "Reat Time Engine (RTT)",
+		"title": "Real Time Engine (RTT)",
 		"description": "creation of Real Time data and running of the Real Time engine",
 		"version": "0.1"
 	},
