@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/engines/sae": {
+    "/engines/sae2": {
       "post": {
         "description": "Soft Assignment Engine",
         "requestBody": {
