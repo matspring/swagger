@@ -30,7 +30,7 @@
                   }
                 }
               },
-              "examples": {
+"examples": {
 								"1": {
 									"value": {
 										"SAEInbound": {
@@ -60,7 +60,6 @@
 									}
 								}
 							}
-          }
         },
         "responses": {
           "201": {
