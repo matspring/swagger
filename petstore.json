@@ -22,7 +22,6 @@
 			"description": "Find out more",
 			"url": "http://swagger.io"
 		}
-	}
 	}],
 	"schemes": ["https", "http"],
 	"paths": {
