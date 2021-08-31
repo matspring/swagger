@@ -5,6 +5,7 @@
 		"version": "1.0.5",
 		"title": "Soft Assignment"
 	},
+    "servers": "- url: 'http://delta/ords/apps'",
 	"host": "github.com/matspring",
 	"basePath": "/swagger",
 	"tags": {
