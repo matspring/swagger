@@ -12,11 +12,8 @@
 			"name": "Apache 2.0",
 			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
 		},
-  "servers": [
-    {
-      "url": "http://delta/ords/apps"
-    }
-  ],
+	"host": "github.com/matspring",
+	"basePath": "/swagger",
   "paths": {
     "/engines/sae2": {
       "post": {
