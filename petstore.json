@@ -5,63 +5,53 @@
 		"version": "1.0.5",
 		"title": "Soft Assignment"
 	},
-	"host": "petstore.swagger.io",
-	"basePath": "/v2",
+	"host": "github.com/matspring",
+	"basePath": "/swagger",
 	"tags": [{
-		"name": "pet",
-		"description": "Everything about your Pets",
-		"externalDocs": {
-			"description": "Find out more",
-			"url": "http://swagger.io"
-		}
+		"name": "sae",
+		"description": "Everything about your Pets"
 	}],
 	"schemes": ["https", "http"],
 	"paths": {
-		"/pet/{petId}/uploadImage": {
-			"post": {
-				"tags": ["pet"],
-				"summary": "uploads an image",
-				"description": "",
-				"operationId": "uploadFile",
-				"consumes": ["multipart/form-data"],
-				"produces": ["application/json"],
-				"parameters": [{
-					"name": "petId",
-					"in": "path",
-					"description": "ID of pet to update",
-					"required": true,
-					"type": "integer",
-					"format": "int64"
-				}, {
-					"name": "additionalMetadata",
-					"in": "formData",
-					"description": "Additional data to pass to server",
-					"required": false,
-					"type": "string"
-				}, {
-					"name": "file",
-					"in": "formData",
-					"description": "file to upload",
-					"required": false,
-					"type": "file"
-				}],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"schema": {
-							"$ref": "#/definitions/ApiResponse"
-						}
-					}
-				},
-				"security": [{
-					"petstore_auth": ["write:pets", "read:pets"]
-				}]
-			}
+		"/sae": {
+"post": {
+        "description": "Soft Assignment Engine",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "SAE": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "1": {
+                  "value": null
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Soft Assignment Engine successfully run",
+            "content": {
+              "text/plane": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        }
+      }
 		},
-	},
-
-	"externalDocs": {
-		"description": "Find out more about Swagger",
-		"url": "http://swagger.io"
 	}
 }
