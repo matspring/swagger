@@ -31,36 +31,35 @@
                 }
               },
               "examples": {
-                "1": {
-                  "value": 
-				  "SAEInbound": 
-                {
-                "trace": "Y",
-                "createRow": "Y",
-                "updateExistingRow": "N",
-                "currencyCode": "USD",		
-                "parentTrxID": "999992",
-                "transactionID": "99999",
-                "transactionRef": "A-99999",
-                "transactionTable": "MANUAL_REQ",
-                "transactionType": "REQ",
-                "transactionClass": "ALL",
-                "transactionDate": "04-JAN-2021",
-                "sourceAssignmentID": "9",
-                "attribute1": 1003,
-                "attribute2": 1009,
-                "attribute3": 1234,
-                "attribute4": "Productx",
-                "attribute5": "AR",
-                "attribute6": "US",
-                "attribute7": "IT",
-                "attribute8": "",
-                "attribute9": "Standard-NL",
-                "attribute10": 48
-                }
-                }
-              }
-            }
+								"1": {
+									"value": {
+										"SAEInbound": {
+											"trace": "Y",
+											"createRow": "Y",
+											"updateExistingRow": "N",
+											"currencyCode": "USD",
+											"parentTrxID": "999992",
+											"transactionID": "99999",
+											"transactionRef": "A-99999",
+											"transactionTable": "MANUAL_REQ",
+											"transactionType": "REQ",
+											"transactionClass": "ALL",
+											"transactionDate": "04-JAN-2021",
+											"sourceAssignmentID": "9",
+											"attribute1": 1003,
+											"attribute2": 1009,
+											"attribute3": 1234,
+											"attribute4": "Productx",
+											"attribute5": "AR",
+											"attribute6": "US",
+											"attribute7": "IT",
+											"attribute8": "",
+											"attribute9": "Standard-NL",
+											"attribute10": 48
+										}
+									}
+								}
+							}
           }
         },
         "responses": {
