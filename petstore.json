@@ -7,30 +7,32 @@
 	},
 	"host": "github.com/matspring",
 	"basePath": "/swagger",
-	"tags": [{
+	"tags": {
 		"name": "engines/sae",
 		"description": "Everything about Soft Assignment Engine"
-	}],
+	},
 	"schemes": ["https", "http"],
 	"paths": {
 		"/sae": {
-"post": {
-        "description": "Soft Assignment Engine",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "SAE": {
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    }
-                  }
-                }
-              },
-"examples": {
+			"post": {
+				"description": "Soft Assignment Engine",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							
+							"schema": {
+								"type": "object",
+								"properties": {
+									"SAE": {
+										"type": "array",
+										"items": {
+											"type": "object"
+										}
+									}
+								}
+							},
+							
+							"examples": {
 								"1": {
 									"value": {
 										"SAEInbound": {
@@ -60,21 +62,23 @@
 									}
 								}
 							}
-        },
-        "responses": {
-          "201": {
-            "description": "Soft Assignment Engine successfully run",
-            "content": {
-              "text/plane": {
-                "schema": {
-                  "type": "string"
-                },
-                "examples": {}
-              }
-            }
-          }
-        }
-      }
-		},
+						},
+						"responses": {
+							"201": {
+								"description": "Soft Assignment Engine successfully run",
+								"content": {
+									"text/plane": {
+										"schema": {
+											"type": "string"
+										},
+										"examples": {}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
