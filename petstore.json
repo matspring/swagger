@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+	"swagger": "2.0",
 	"info": {
 		"title": "Soft Assignment Engine (SAE)",
 		"description": "creation of Soft Assignment data and running of the Soft Assignment engine",
