@@ -14,7 +14,7 @@
 	},
 	"schemes": ["https", "http"],
 	"paths": {
-		"/sae": {
+		"/engines/sae": {
 			"post": {
 				"description": "Soft Assignment Engine",
 				"requestBody": {
