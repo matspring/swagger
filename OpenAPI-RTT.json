@@ -28,52 +28,54 @@
 							},
 							"examples": {
 								"1": {
-									"RTTInbound": {
-										"requestID": "90778",
-										"tableGroupID": 0,
-										"removePriorRecords": "N",
-										"investigateErrors": "Y",
-										"ICPriceMandatory": "N",
-										"transactions": [{
-												"sourceAssignmentName": "IBIS Real Time",
-												"transactionTable": "CUSTOMS",
-												"transactionType": "PICKED",
-												"transactionClass": "ALL",
-												"transactionRef": "MSS90687",
-												"transactionID": 90988,
-												"parentTrxID": 90985,
-												"transactionDate": "01-JAN-2021",
-												"currencyCode": "USD",
-												"attribute1": "01",
-												"attribute2": "03",
-												"attribute3": "Service",
-												"enteredDR": 250,
-												"enteredCR": 0
-											},
-											{
-												"sourceAssignmentName": "IBIS Real Time",
-												"transactionTable": "CUSTOMS",
-												"transactionType": "PICKED",
-												"transactionClass": "ALL",
-												"transactionRef": "MSS90690",
-												"transactionID": 90989,
-												"parentTrxID": 90985,
-												"transactionDate": "01-JAN-2021",
-												"currencyCode": "USD",
-												"attribute1": "01",
-												"attribute2": "03",
-												"attribute3": "Service",
-												"enteredDR": 250,
-												"enteredCR": 0
-											}
-										]
+									"value": {
+										"RTTInbound": {
+											"requestID": "90778",
+											"tableGroupID": 0,
+											"removePriorRecords": "N",
+											"investigateErrors": "Y",
+											"ICPriceMandatory": "N",
+											"transactions": [{
+													"sourceAssignmentName": "IBIS Real Time",
+													"transactionTable": "CUSTOMS",
+													"transactionType": "PICKED",
+													"transactionClass": "ALL",
+													"transactionRef": "MSS90687",
+													"transactionID": 90988,
+													"parentTrxID": 90985,
+													"transactionDate": "01-JAN-2021",
+													"currencyCode": "USD",
+													"attribute1": "01",
+													"attribute2": "03",
+													"attribute3": "Service",
+													"enteredDR": 250,
+													"enteredCR": 0
+												},
+												{
+													"sourceAssignmentName": "IBIS Real Time",
+													"transactionTable": "CUSTOMS",
+													"transactionType": "PICKED",
+													"transactionClass": "ALL",
+													"transactionRef": "MSS90690",
+													"transactionID": 90989,
+													"parentTrxID": 90985,
+													"transactionDate": "01-JAN-2021",
+													"currencyCode": "USD",
+													"attribute1": "01",
+													"attribute2": "03",
+													"attribute3": "Service",
+													"enteredDR": 250,
+													"enteredCR": 0
+												}
+											]
+										}
 									}
 								}
 							}
 						},
 						"responses": {
 							"201": {
-								"description": "Soft Assignment Engine successfully run",
+								"description": "Real Time Engine successfully run",
 								"content": {
 									"text/plane": {
 										"schema": {
