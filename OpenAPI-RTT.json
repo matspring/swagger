@@ -9,7 +9,7 @@
 		"url": "http://delta/ords/apps"
 	}],
 	"paths": {
-		"/engines/sae": {
+		"/engines/rtt": {
 			"post": {
 				"description": "Real Time Engine",
 				"requestBody": {
@@ -18,7 +18,7 @@
 							"schema": {
 								"type": "object",
 								"properties": {
-									"SAE": {
+									"RTT": {
 										"type": "array",
 										"items": {
 											"type": "object"
