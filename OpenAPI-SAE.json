@@ -8,7 +8,7 @@
 	"servers": [
 		{
 		"url": "http://delta/ords/apps",
-		"url": "https://odin.virtualtrader.io/ords/sdev1/apps/engines/sae",	
+		"url2": "https://odin.virtualtrader.io/ords/sdev1/apps/engines/sae",	
 		}
 	],
 	"paths": {
