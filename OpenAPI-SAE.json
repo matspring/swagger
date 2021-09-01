@@ -1,4 +1,4 @@
-{
+{       "openapi": "3.0.1",
 	"info": {
 		"_postman_id": "77911201-92e7-4f95-a52f-c47dd3f08c15",
 		"name": "SDEV1 Test calls to VT engines",
