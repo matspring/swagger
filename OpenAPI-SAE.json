@@ -15,6 +15,13 @@
 		"/engines/sae": {
 			"post": {
 				"description": "Soft Assignment Engine",
+				"header": [
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "*",
+						"type": "text"
+					}
+				],
 				"requestBody": {
 					"content": {
 						"application/json": {
