@@ -7,7 +7,7 @@
 	},
 	"servers": [
 		{
-		"url": "http://delta/ords/apps"
+		"url": "https://delta/ords/apps"
 		}
 	],
 	"paths": {
