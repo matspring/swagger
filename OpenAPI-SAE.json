@@ -5,9 +5,11 @@
 		"description": "creation of Soft Assignment data and running of the Soft Assignment engine",
 		"version": "0.1"
 	},
-	"servers": [{
+	"servers": [
+		{
 		"url": "http://delta/ords/apps"
-	}],
+		}
+	],
 	"paths": {
 		"/engines/sae": {
 			"post": {
