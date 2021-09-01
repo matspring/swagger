@@ -1,96 +1,80 @@
-{       "openapi": "3.0.1",
+{
+	"openapi": "3.0.1",
 	"info": {
-		"_postman_id": "77911201-92e7-4f95-a52f-c47dd3f08c15",
-		"name": "SDEV1 Test calls to VT engines",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"title": "Soft Assignment Engine (SAE)",
+		"description": "creation of Soft Assignment data and running of the Soft Assignment engine",
+		"version": "0.1"
 	},
-	"item": [
+	"servers": [
 		{
-			"name": "Get SAE",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"console.log(request);\r",
-							"console.log(request.method);\r",
-							"console.log(request.responseBody);\r",
-							"\r",
-							"console.log(responseBody);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"SAEInbound\": {\r\n\t\t\"currencyCode\": \"USD\",\r\n\t\t\"parentTrxID\": \"99999\",\r\n\t\t\"transactionID\": \"99999\",\r\n\t\t\"transactionRef\": \"A-99999\",\r\n\t\t\"transactionTable\": \"MANUAL_REQ\",\r\n\t\t\"transactionType\": \"REQ\",\r\n\t\t\"transactionClass\": \"ALL\",\r\n\t\t\"transactionDate\": \"04-JAN-2021\",\r\n\t\t\"sourceAssignmentID\": \"9\",\r\n\t\t\"attribute1\": 1003,\r\n\t\t\"attribute2\": 1009,\r\n\t\t\"attribute3\": \"sdfsdf\",\r\n\t\t\"attribute4\": \"Product\",\r\n\t\t\"attribute5\": \"AR\",\r\n\t\t\"attribute6\": \"US\",\r\n\t\t\"attribute7\": \"IT\",\r\n\t\t\"attribute8\": \"\",\r\n\t\t\"attribute9\": \"Standard-NL\",\r\n\t\t\"attribute10\": 48\r\n\t}\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://delta/ords/apps/engines/sae",
-					"protocol": "http",
-					"host": [
-						"delta"
-					],
-					"path": [
-						"ords",
-						"apps",
-						"engines",
-						"sae"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Post Soft Assignment Engine (SAE)",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Access-Control-Allow-Origin",
-						"value": "*",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"SAEInbound\": {\r\n        \"trace\": \"Y\",\r\n        \"createRow\": \"Y\",\r\n        \"updateExistingRow\": \"N\",\r\n        \"currencyCode\": \"USD\",\r\n        \"parentTrxID\": \"999992\",\r\n        \"transactionID\": \"99999\",\r\n        \"transactionRef\": \"A-99999\",\r\n        \"transactionTable\": \"MANUAL_REQ\",\r\n        \"transactionType\": \"REQ\",\r\n        \"transactionClass\": \"ALL\",\r\n        \"transactionDate\": \"04-JAN-2021\",\r\n        \"sourceAssignmentID\": \"9\",\r\n        \"attribute1\": 1003,\r\n        \"attribute2\": 1009,\r\n        \"attribute3\": 1234,\r\n        \"attribute4\": \"Productx\",\r\n        \"attribute5\": \"AR\",\r\n        \"attribute6\": \"US\",\r\n        \"attribute7\": \"IT\",\r\n        \"attribute8\": \"\",\r\n        \"attribute9\": \"Standard-NL\",\r\n        \"attribute10\": 48\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://odin.virtualtrader.io/ords/sdev1/apps/engines/sae",
-					"protocol": "https",
-					"host": [
-						"odin",
-						"virtualtrader",
-						"io"
-					],
-					"path": [
-						"ords",
-						"sdev1",
-						"apps",
-						"engines",
-						"sae"
-					]
-				}
-			},
-			"response": []
+		"url": "https://delta/ords/apps"
 		}
-	]
+	],
+	"paths": {
+		"/engines/sae": {
+			"post": {
+				"description": "Soft Assignment Engine",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"SAE": {
+										"type": "array",
+										"items": {
+											"type": "object"
+										}
+									}
+								}
+							},
+							"examples": {
+								"1": {
+									"value": {
+										"SAEInbound": {
+											"trace": "Y",
+											"createRow": "Y",
+											"updateExistingRow": "N",
+											"currencyCode": "USD",
+											"parentTrxID": "999992",
+											"transactionID": "99999",
+											"transactionRef": "A-99999",
+											"transactionTable": "MANUAL_REQ",
+											"transactionType": "REQ",
+											"transactionClass": "ALL",
+											"transactionDate": "04-JAN-2021",
+											"sourceAssignmentID": "9",
+											"attribute1": 1003,
+											"attribute2": 1009,
+											"attribute3": 1234,
+											"attribute4": "Productx",
+											"attribute5": "AR",
+											"attribute6": "US",
+											"attribute7": "IT",
+											"attribute8": "",
+											"attribute9": "Standard-NL",
+											"attribute10": 48
+										}
+									}
+								}
+							}
+						},
+						"responses": {
+							"201": {
+								"description": "Soft Assignment Engine successfully run",
+								"content": {
+									"text/plane": {
+										"schema": {
+											"type": "string"
+										},
+										"examples": {}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
