@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Engines WS APIsx
+  title: Engines WS APIs
   description: creation of engine data and running of the respective engine
   version: '0.1'
 tags:
