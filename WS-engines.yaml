@@ -79,7 +79,8 @@ paths:
                       attributeID: 11011
                       ownerCompany: '01'
                       partnerCompany: '103'
-
+        '400':
+          description: Bad Request
         '501':
           description: A Soft Assignment Engine error has occurred
           headers:
@@ -174,6 +175,8 @@ paths:
                        extended: 0
                        VTResultsAttribute1: MSS90690
                        VTResultsAttribute20: '1'
+        '400':
+          description: Bad Request
         '501':
           description: A Real Time Engine error has occurred#
           content:
@@ -286,6 +289,8 @@ paths:
                   value:
                     TRFOutbound:
                       headerCtlID:115501
+        '400':
+          description: Bad Request
         '501':
           description: A Transformation Layer Engine error has occurred#
           content:
