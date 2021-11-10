@@ -1,0 +1,309 @@
+openapi: 3.0.1
+info:
+  title: Engines WS APIs
+  description: creation of engine data and running of the respective engine
+  version: '0.1'
+tags:
+  - name: SAE
+    description: Soft Assignment Engine
+  - name: RTT
+    description: Real Time Engine
+  - name: TRF
+    description: Transformation Layer Engine
+paths:
+  /engines/sae:
+    post:
+      tags:
+        - SAE
+      description: Web Service to pass data to and run the Soft Assignment Engine        
+
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SAE:
+                  type: array
+                  items:
+                    type: object
+            examples:
+              'sample':
+                value:
+                  SAEInbound:
+                    trace: 'Y'
+                    createRow: 'Y'
+                    updateExistingRow: 'N'
+                    currencyCode: USD
+                    parentTrxID: '999992'
+                    transactionID: '99999'
+                    transactionRef: A-99999
+                    transactionTable: MANUAL_REQ
+                    transactionType: REQ
+                    transactionClass: ALL
+                    transactionDate: 04-JAN-2021
+                    sourceAssignmentID: '9'
+                    attribute1: 1003
+                    attribute2: 1009
+                    attribute3: 1234
+                    attribute4: Product
+                    attribute5: AR
+                    attribute6: US
+                    attribute7: IT
+                    attribute8: ''
+                    attribute9: Standard-NL
+                    attribute10: 48
+      responses:
+        '201':
+          description: Soft Assignment Engine successfully run
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                      type: object
+              examples:
+                'success response':
+                  value:
+                    SAEOutbound:
+                      transactionRef: A-99999
+                      interfaceID: 0
+                      sequence: 1
+                      tradingSet: SAE Buy/Sell
+                      tradingSetID: '101'
+                      priceMethodID: 0
+                      attributeID: 11011
+                      ownerCompany: '01'
+                      partnerCompany: '103'
+
+        '501':
+          description: A Soft Assignment Engine error has occurred
+          headers:
+            XX-ERROR-MSG:
+              schema:
+                type: string
+              description: Error The Assignment incomplete. Check Transaction Table and type  (12998)
+                   
+  /engines/rtt:
+    post:
+      tags:
+        - RTT
+      description: Web Service to pass data to and run the Real Time Engine
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RTT:
+                  type: array
+                  items:
+                    type: object
+            examples:
+              'sample':
+                value:
+                  RTTInbound:
+                    requestID: '99999'
+                    tableGroupID: 0
+                    removePriorRecords: 'N'
+                    investigateErrors: 'Y'
+                    ICPriceMandatory: 'N'
+                    transactions:
+                      - sourceAssignmentName: Vision Comms RT
+                        transactionTable: REAL TIME
+                        transactionType: TYPE
+                        transactionClass: CLASS
+                        transactionRef: MSS90687
+                        transactionID: 90988
+                        parentTrxID: 90985
+                        transactionDate: 01-JAN-2021
+                        currencyCode: USD
+                        attribute1: '01'
+                        attribute2: '03'
+                        attribute3: Service
+                        enteredDR: 250
+                        enteredCR: 0
+                      - sourceAssignmentName: Vision Comms RT
+                        transactionTable: REAL TIME
+                        transactionType: TYPE
+                        transactionClass: CLASS
+                        transactionRef: MSS90690
+                        transactionID: 90989
+                        parentTrxID: 90985
+                        transactionDate: 01-JAN-2021
+                        currencyCode: USD
+                        attribute1: '01'
+                        attribute2: '03'
+                        attribute3: Service
+                        enteredDR: 250
+                        enteredCR: 0
+                  
+      responses:
+        '201':
+          description: Real Time Engine successfully run
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                      type: object
+              examples:
+                'success response':
+                  value:
+                    RTTOutbound:
+                     - legalName: Vision Trading (US)
+                       interfaceID: 9021
+                       transactionRef: MSS90687
+                       ICPrice: 0
+                       quantity: 1
+                       extended: 0
+                       VTResultsAttribute1: MSS90687
+                       VTResultsAttribute20: '1'
+                     - legalName: Vision Trading (US)
+                       interfaceID: 9026
+                       transactionRef: MSS90690
+                       ICPrice: 0
+                       quantity: 1
+                       extended: 0
+                       VTResultsAttribute1: MSS90690
+                       VTResultsAttribute20: '1'
+        '501':
+          description: A Real Time Engine error has occurred#
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                      type: object
+              examples:
+                'error response':
+                  value:
+                    RTTOutbound:
+                      content:
+                        errorCode: 3502
+                        errorMessage: Check Assignment Rules setup within the Assignment Control form. Also check the Tax Registration Lookup form
+          headers:
+            XX-ERROR-MSG:
+              schema:
+                type: string
+              description: Real Time Engine error occurred
+              
+  /engines/trf:
+    post:
+      tags:
+        - TRF
+      description: Web Service to pass data to and run the Transformation Layer Engine
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TRF:
+                  type: array
+                  items:
+                    type: object
+            examples:
+              'sample':
+                value:
+                  TRFInbound:
+                    vtDataSourceName: UK IC RECON
+                    fileID: 554444
+                    captureType: WS
+                    transactions:
+                      - vtTransactionRef: MSS-TEST001
+                        vtTransactionId: '123456'
+                        vtTransactionDate: 05-MAR-2021
+                        column1: JE Ref
+                        column2: 100
+                        column3: USD
+                        column4: '2021-03-05'
+                        column5: JE Desc
+                        column6: IC Ref
+                        column7: Seg1
+                        column8: Seg2
+                        column9: Seg3
+                        column10: Seg4
+                        column11: Seg5
+                        column20: '50'
+                        column30: File Name
+                        column31: 554443
+                        column40: 01-JAN-2021
+                        column50: USD
+                        column60: '01'
+                        column70: '03'
+                        column80: Service
+                        column90: 250
+                        column100: 0
+                      - vtTransactionRef: MSS-TEST002
+                        vtTransactionId: '123457'
+                        vtTransactionDate: 05-MAR-2021
+                        column1: JE Ref
+                        column2: 200
+                        column3: GBP
+                        column4: '2021-03-05'
+                        column5: JE Desc
+                        column6: IC Ref
+                        column7: Seg1
+                        column8: Seg2
+                        column9: Seg3
+                        column10: Seg4
+                        column11: Seg5
+                        column20: '50'
+                        column30: File Name
+                        column31: 554443
+                        column40: 01-JAN-2021
+                        column50: USD
+                        column60: '01'
+                        column70: '03'
+                        column80: Service
+                        column90: 250
+                        column100: 0
+      responses:
+        '201':
+          description: Transformation Layer Engine successfully run
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                      type: object
+              examples:
+                'success response':
+                  value:
+                    TRFOutbound:
+                      headerCtlID:115501
+        '501':
+          description: A Transformation Layer Engine error has occurred#
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                       type: object
+              examples:
+                'success response':
+                  value:
+                    TRFOutbound:
+                      headerCtlID:115503
+          headers:
+            XX-ERROR-MSG:
+              schema:
+                type: string
+              description: Duplicate Data Source/File ID (EBS SOURCE 1/554446)
