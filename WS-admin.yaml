@@ -4,8 +4,13 @@ info:
   description: creation of engine data and running of the respective engine
   version: '0.1'
 tags:
-  - name: Submit Job
+  - name: submitJob
     description: Post Schedule Job
+  - name: getJobStatus
+    description: Get Job Status
+  - name: getJobOutput
+    description: Get Job Output
+
 paths:
   /admin/submitJob:
     post:
