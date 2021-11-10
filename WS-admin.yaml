@@ -1,0 +1,86 @@
+openapi: 3.0.1
+info:
+  title: Admin WS APIs
+  description: creation of engine data and running of the respective engine
+  version: '0.1'
+tags:
+  - name: Submit Job
+    description: Post Schedule Job
+paths:
+  /admin/submitJob:
+    post:
+      tags:
+        - SAE
+      description: Web Service to pass data to and run the Soft Assignment Engine        
+
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SAE:
+                  type: array
+                  items:
+                    type: object
+            examples:
+              'sample':
+                value:
+                  SAEInbound:
+                    trace: 'Y'
+                    createRow: 'Y'
+                    updateExistingRow: 'N'
+                    currencyCode: USD
+                    parentTrxID: '999992'
+                    transactionID: '99999'
+                    transactionRef: A-99999
+                    transactionTable: MANUAL_REQ
+                    transactionType: REQ
+                    transactionClass: ALL
+                    transactionDate: 04-JAN-2021
+                    sourceAssignmentID: '9'
+                    attribute1: 1003
+                    attribute2: 1009
+                    attribute3: 1234
+                    attribute4: Product
+                    attribute5: AR
+                    attribute6: US
+                    attribute7: IT
+                    attribute8: ''
+                    attribute9: Standard-NL
+                    attribute10: 48
+      responses:
+        '201':
+          description: Soft Assignment Engine successfully run
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                      type: object
+              examples:
+                'success response':
+                  value:
+                    SAEOutbound:
+                      transactionRef: A-99999
+                      interfaceID: 0
+                      sequence: 1
+                      tradingSet: SAE Buy/Sell
+                      tradingSetID: '101'
+                      priceMethodID: 0
+                      attributeID: 11011
+                      ownerCompany: '01'
+                      partnerCompany: '103'
+        '400':
+          description: Bad Request
+        '501':
+          description: A Soft Assignment Engine error has occurred
+          headers:
+            XX-ERROR-MSG:
+              schema:
+                type: string
+              description: Error The Assignment incomplete. Check Transaction Table and type  (12998)
