@@ -30,7 +30,7 @@ paths:
                   ScheduleJob:
                     programName: 'XXCPGLENG'
                     userName: 'MSPRING'
-                    arguments: '3,1098,0',,,,,,,,,,,,'
+                    arguments: '3,1098,0,,,,,,,,,,,,'
       responses:
         '201':
           description: Soft Assignment Engine successfully run
