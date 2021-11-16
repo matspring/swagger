@@ -39,4 +39,4 @@ paths:
                 type: string
               description: 21747
         '400':
-          description: 'Error: User Name <MSMITHH> is invalid'
+          description: Submitted job. <21747>
