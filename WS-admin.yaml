@@ -15,9 +15,8 @@ paths:
   /admin/submitJob:
     post:
       tags:
-        - SAE
-      description: Web Service to pass data to and run the Soft Assignment Engine        
-
+        - submitJob
+      description: Web Service to submit a Job to the Scheduler
 
       requestBody:
         content:
@@ -32,29 +31,24 @@ paths:
             examples:
               'sample':
                 value:
-                  SAEInbound:
-                    trace: 'Y'
-                    createRow: 'Y'
-                    updateExistingRow: 'N'
-                    currencyCode: USD
-                    parentTrxID: '999992'
-                    transactionID: '99999'
-                    transactionRef: A-99999
-                    transactionTable: MANUAL_REQ
-                    transactionType: REQ
-                    transactionClass: ALL
-                    transactionDate: 04-JAN-2021
-                    sourceAssignmentID: '9'
-                    attribute1: 1003
-                    attribute2: 1009
-                    attribute3: 1234
-                    attribute4: Product
-                    attribute5: AR
-                    attribute6: US
-                    attribute7: IT
-                    attribute8: ''
-                    attribute9: Standard-NL
-                    attribute10: 48
+                  ScheduleJob:
+                    programName: 'Y'
+                    userName: 'MSPRING'
+                    argument1: '3'
+                    argument2: '1098'
+                    argument3: '0'
+                    argument4: '~NULL~'
+                    argument5: '~NULL~'
+                    argument6: '~NULL~'
+                    argument7: '~NULL~'
+                    argument8: '~NULL~'
+                    argument9: '~NULL~'
+                    argument10: '~NULL~'
+                    argument11: '~NULL~'
+                    argument12: '~NULL~'
+                    argument13: '~NULL~'
+                    argument14: '~NULL~'
+                    argument15: '~NULL~'
       responses:
         '201':
           description: Soft Assignment Engine successfully run
