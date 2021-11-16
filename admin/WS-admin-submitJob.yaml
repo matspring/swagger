@@ -41,4 +41,4 @@ paths:
         '400':
           description: 'Error: User Name <MSMITHH> is invalid'
         '401':
-          description: 'Error: User <MSMITH> does not have access to Program <XXCPGLENG>''
+          description: 'Error: User <MSMITH> does not have access to Program <XXCPGLENG>'
