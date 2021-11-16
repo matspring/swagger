@@ -24,7 +24,7 @@ paths:
             schema:
               type: object
               properties:
-                SAE:
+                submitJob:
                   type: array
                   items:
                     type: object
