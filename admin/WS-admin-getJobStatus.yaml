@@ -1,17 +1,17 @@
 openapi: 3.0.1
 info:
   title: Admin WS APIs
-  description: creation of engine data and running of the respective engine
+  description: Web Services to perform admin tasks
   version: '0.1'
 tags:
-  - name: getJobStatus
+  - name: JobStatuses
     description: Get Job Status
 
 paths:
-  /admin/getJobStatus:
+  /admin/JobStatuses:
     post:
       tags:
-        - getJobStatus
+        - JobStatuses
       description: Web Service to retrieve the status of a submitted job
 
       requestBody:

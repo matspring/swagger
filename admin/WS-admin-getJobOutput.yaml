@@ -1,18 +1,18 @@
 openapi: 3.0.1
 info:
   title: Admin WS APIs
-  description: creation of engine data and running of the respective engine
+  description: Web Services to perform admin tasks
   version: '0.1'
 tags:
-  - name: getJobOutput
+  - name: JobOutputs
     description: Get Job Output
 
 paths:
-  /admin/getJobOutput:
+  /admin/JobOutputs:
     post:
       tags:
-        - getJobOutput
-      description: Web Service to get the output (output or log) of a submitted job
+        - JobOutputs
+      description: Web Service to retrieve the output (output or log) of a submitted job
 
       requestBody:
         content:

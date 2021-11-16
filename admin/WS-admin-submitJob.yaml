@@ -1,17 +1,17 @@
 openapi: 3.0.1
 info:
   title: Admin WS APIs
-  description: creation of engine data and running of the respective engine
+  description: Web Services to perform admin tasks
   version: '0.1'
 tags:
-  - name: submitJob
+  - name: Jobs
     description: Submit a Scheduled Job
 
 paths:
-  /admin/submitJob:
+  /admin/Jobs:
     post:
       tags:
-        - submitJob
+        - Jobs
       description: Web Service to submit a Job to the Scheduler
 
       requestBody:
@@ -20,7 +20,7 @@ paths:
             schema:
               type: object
               properties:
-                submitJob:
+                Jobs:
                   type: array
                   items:
                     type: object
@@ -28,23 +28,9 @@ paths:
               'sample':
                 value:
                   ScheduleJob:
-                    programName: 'Y'
+                    programName: 'XXCPGLENG'
                     userName: 'MSPRING'
-                    argument1: '3'
-                    argument2: '1098'
-                    argument3: '0'
-                    argument4: '~NULL~'
-                    argument5: '~NULL~'
-                    argument6: '~NULL~'
-                    argument7: '~NULL~'
-                    argument8: '~NULL~'
-                    argument9: '~NULL~'
-                    argument10: '~NULL~'
-                    argument11: '~NULL~'
-                    argument12: '~NULL~'
-                    argument13: '~NULL~'
-                    argument14: '~NULL~'
-                    argument15: '~NULL~'
+                    arguments: '3,1098,0',,,,,,,,,,,,'
       responses:
         '201':
           description: Soft Assignment Engine successfully run
