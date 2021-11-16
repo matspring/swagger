@@ -13,7 +13,6 @@ paths:
       tags:
         - Jobs
       description: Web Service to submit a Job to the Scheduler
-
       requestBody:
         content:
           application/json:
@@ -29,39 +28,17 @@ paths:
                 value:
                   ScheduleJob:
                     programName: 'XXCPGLENG'
-                    userName: 'MSPRING'
+                    userName: 'MSMITH'
                     arguments: '3,1098,0,,,,,,,,,,,,'
       responses:
         '201':
-          description: Soft Assignment Engine successfully run
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  SAE:
-                    type: array
-                    items:
-                      type: object
-              examples:
-                'success response':
-                  value:
-                    SAEOutbound:
-                      transactionRef: A-99999
-                      interfaceID: 0
-                      sequence: 1
-                      tradingSet: SAE Buy/Sell
-                      tradingSetID: '101'
-                      priceMethodID: 0
-                      attributeID: 11011
-                      ownerCompany: '01'
-                      partnerCompany: '103'
-        '400':
-          description: Bad Request
-        '501':
-          description: A Soft Assignment Engine error has occurred
+          description: Submitted job. <21747>
           headers:
-            XX-ERROR-MSG:
+            XX-JOB-ID:
               schema:
                 type: string
-              description: Error The Assignment incomplete. Check Transaction Table and type  (12998)
+              description: 21747
+        '400':
+          description: Error: User Name <MSMITHH> is invalid
+        '401':
+          description: Error: User <MSMITH> does not have access to Program <XXCPGLENG>
