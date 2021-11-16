@@ -39,4 +39,6 @@ paths:
                 type: string
               description: 21747
         '400':
-          description: Submitted job. <21747>
+          description: Error User Name <MSMITHX> is invalid
+        '401':
+          description: Error User <MSMITH> does not have access to Program <XXCPGLENG>
