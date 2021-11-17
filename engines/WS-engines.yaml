@@ -43,7 +43,7 @@ paths:
                     transactionType: REQ
                     transactionClass: ALL
                     transactionDate: 04-JAN-2021
-                    sourceAssignmentID: '9'
+                    sourceAssignmentName: 'Test Harness'
                     attribute1: 1003
                     attribute2: 1009
                     attribute3: 1234
@@ -75,13 +75,49 @@ paths:
                       sequence: 1
                       tradingSet: SAE Buy/Sell
                       tradingSetID: '101'
+                      priceMethod: 'SAE Pricing General PM'
                       priceMethodID: 0
                       attributeID: 11011
+                      ICPrice: 100
+                      ICUnitPrice: 20
+                      ICCurrency: USD
+                      adjustmentRate: 0.04
+                      adjustmentRateID: 17101089.07001
                       ownerCompany: '01'
                       partnerCompany: '103'
+                      attribute1: 'USD'
+                      attribute2: null
+                      attribute3: null
+                      attribute4: null
+                      attribute5: null
+                      attribute6: null
+                      attribute7: null
+                      attribute8: null
+                      attribute9: null
+                      attribute10: null
+                      attribute11: null
+                      attribute12: null
+                      attribute13: null
+                      attribute14: null
+                      attribute15: null
+                      attribute16: null
+                      attribute17: null
+                      attribute18: null
+                      attribute19: null
+                      attribute20: null
+                      attribute21: null
+                      attribute22: null
+                      attribute23: null
+                      attribute24: null
+                      attribute25: null
+                      attribute26: null
+                      attribute27: null
+                      attribute28: null
+                      attribute29: null
+                      attribute30: null
         '400':
           description: Bad Request
-        '501':
+        '200':
           description: A Soft Assignment Engine error has occurred
           headers:
             XX-ERROR-MSG:
@@ -166,7 +202,45 @@ paths:
                        quantity: 1
                        extended: 0
                        VTResultsAttribute1: MSS90687
-                       VTResultsAttribute20: '1'
+                       VTResultsAttribute2: null
+                       VTResultsAttribute3: null
+                       VTResultsAttribute4: null
+                       VTResultsAttribute5: null
+                       VTResultsAttribute6: null
+                       VTResultsAttribute7: null
+                       VTResultsAttribute8: null
+                       VTResultsAttribute9: null
+                       VTResultsAttribute10: null
+                       VTResultsAttribute11: null
+                       VTResultsAttribute12: null
+                       VTResultsAttribute13: null
+                       VTResultsAttribute14: null
+                       VTResultsAttribute15: null
+                       VTResultsAttribute16: null
+                       VTResultsAttribute17: null
+                       VTResultsAttribute18: null
+                       VTResultsAttribute19: null
+                       VTResultsAttribute20: 1
+                       VTResultsAttribute21: null
+                       VTResultsAttribute22: null
+                       VTResultsAttribute23: null
+                       VTResultsAttribute24: null
+                       VTResultsAttribute25: null
+                       VTResultsAttribute26: null
+                       VTResultsAttribute27: null
+                       VTResultsAttribute28: null
+                       VTResultsAttribute29: null
+                       VTResultsAttribute30: null
+                       VTResultsAttribute31: null
+                       VTResultsAttribute32: null
+                       VTResultsAttribute33: null
+                       VTResultsAttribute34: null
+                       VTResultsAttribute35: null
+                       VTResultsAttribute36: null
+                       VTResultsAttribute37: null
+                       VTResultsAttribute38: null
+                       VTResultsAttribute39: null
+                       VTResultsAttribute40: null
                      - legalName: Vision Trading (US)
                        interfaceID: 9026
                        transactionRef: MSS90690
@@ -174,11 +248,49 @@ paths:
                        quantity: 1
                        extended: 0
                        VTResultsAttribute1: MSS90690
-                       VTResultsAttribute20: '1'
+                       VTResultsAttribute2: null
+                       VTResultsAttribute3: null
+                       VTResultsAttribute4: null
+                       VTResultsAttribute5: null
+                       VTResultsAttribute6: null
+                       VTResultsAttribute7: null
+                       VTResultsAttribute8: null
+                       VTResultsAttribute9: null
+                       VTResultsAttribute10: null
+                       VTResultsAttribute11: null
+                       VTResultsAttribute12: null
+                       VTResultsAttribute13: null
+                       VTResultsAttribute14: null
+                       VTResultsAttribute15: null
+                       VTResultsAttribute16: null
+                       VTResultsAttribute17: null
+                       VTResultsAttribute18: null
+                       VTResultsAttribute19: null
+                       VTResultsAttribute20: 1
+                       VTResultsAttribute21: null
+                       VTResultsAttribute22: null
+                       VTResultsAttribute23: null
+                       VTResultsAttribute24: null
+                       VTResultsAttribute25: null
+                       VTResultsAttribute26: null
+                       VTResultsAttribute27: null
+                       VTResultsAttribute28: null
+                       VTResultsAttribute29: null
+                       VTResultsAttribute30: null
+                       VTResultsAttribute31: null
+                       VTResultsAttribute32: null
+                       VTResultsAttribute33: null
+                       VTResultsAttribute34: null
+                       VTResultsAttribute35: null
+                       VTResultsAttribute36: null
+                       VTResultsAttribute37: null
+                       VTResultsAttribute38: null
+                       VTResultsAttribute39: null
+                       VTResultsAttribute40: null
         '400':
           description: Bad Request
-        '501':
-          description: A Real Time Engine error has occurred#
+        '200':
+          description: A Real Time Engine error has occurred
           content:
             application/json:
               schema:
@@ -291,7 +403,7 @@ paths:
                       headerCtlID:115501
         '400':
           description: Bad Request
-        '501':
+        '200':
           description: A Transformation Layer Engine error has occurred#
           content:
             application/json:
