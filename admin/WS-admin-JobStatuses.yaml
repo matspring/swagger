@@ -1,4 +1,8 @@
 openapi: 3.0.1
+info:
+  title: Admin WS APIs
+  description: Web Services to perform admin tasks
+  version: '0.1'
 tags:
   - name: JobStatuses
     description: Get Job Status
@@ -6,6 +10,13 @@ tags:
 paths:
   /admin/JobStatuses/{Job_id}:
     get:
+      parameters:
+        - in: path
+          name: Job_id
+          schema:
+            type: integer
+          required: true
+          description: ID of the Job to get the status for
       tags:
         - JobStatuses
       description: Web Service to retrieve the status of a submitted job
@@ -16,11 +27,11 @@ paths:
             XX-START-DATE:
               schema:
                 type: string
-              description: 2021-11-16 12:26:59
+              description: '2021-11-16 12:26:59'
             XX-END-DATE:
               schema:
                 type: string
-              description: 2021-11-16 12:28:24
+              description: '2021-11-16 12:28:24'
             XX-JOB-MESSAGE:
               schema:
                 type: string
