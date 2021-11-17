@@ -1,0 +1,57 @@
+openapi: 3.0.1
+info:
+  title: Admin WS APIs
+  description: Web Services to perform admin tasks
+  version: '0.1'
+tags:
+  - name: Jobs
+    description: Submit a Scheduled Job
+
+paths:
+  /admin/Jobs:
+    post:
+      tags:
+        - Jobs
+      description: Web Service to submit a Job to the Scheduler
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Jobs:
+                  type: array
+                  items:
+                    type: object
+            examples:
+              'Journal Engine':
+                value:
+                  ScheduleJob:
+                    programName: 'XXCPGLENG'
+                    userName: 'MSMITH'
+                    arguments: '3,1098,0,,,,,,,,,,,,'
+              'Object Regeneration':
+                value:
+                  ScheduleJob:
+                    programName: 'XXCPREGEN'
+                    userName: 'MSMITH'
+                    arguments: ',,,,,,,,,,,,,,'
+              'IC Invoice Creation':
+                value:
+                  ScheduleJob:
+                    programName: 'XXCPICINVNUM'
+                    userName: 'MSMITH'
+                    arguments: ',,,IC,,,,,N,,,,,,'
+
+      responses:
+        '201':
+          description: Submitted job. <21747>
+          headers:
+            XX-JOB-ID:
+              schema:
+                type: string
+              description: '21747'
+        '400':
+          description: Error User Name < MSMITHX > is invalid
+        '401':
+          description: Error User < MSMITH > does not have access to Program < XXCPGLENG >

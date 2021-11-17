@@ -1,0 +1,97 @@
+openapi: 3.0.1
+tags:
+  - name: JobOutputs
+    description: Get Job Output
+
+paths:
+  /admin/JobOutputs/{Job_id}:
+    get:
+      tags:
+        - JobOutputs
+      description: Web Service to retrieve the output or log for a submitted job
+      parameters:
+        - in: header
+          name: XX-OUTPUT-TYPE
+          schema:
+            type: string
+          required: true
+          description: Output Type - either (O)utput or (L)og
+
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              examples:
+                '(O)utput':
+                  value: '******************* VIRTUAL TRADER LTD. ******************
+*           Virtual Trader Journal Engine 4.1.0          *
+*                (Short Name: XXCPGLENG)                 *
+**********************************************************
+
+Patch Name              : <vtp273gen009>
+Run ID                  : <20640>
+Source                  : <OpenUPTIME Journals> 3
+Source Group            : <OpenUPTIME Rec Source Group> 1098
+Table Group             : <Default> 0
+Journal Group           : <>
+(Low) Transaction Ref   : <>
+(High) Transaction Ref  : <>
+(Low) Transaction Date  : <>
+(High) Transaction Date : <>
+
+**********************************************************
+	
+Partitioning RunTime Months: <16-NOV-21> to <16-MAY-22>
+Request Id Range from: <1000>
+	
+	
+INTERNAL PARAMETERS
+-------------------
+Transaction Dates between <16-NOV-21> and <16-MAY-22> will be processed based upon System Profiles <PARTITIONING MONTHS START> and <PARTITIONING MONTHS END>
+	
+Alert Queue Clear Down Days System Profile value: 15
+0 Alert Queues deleted
+VT Request Ids from <-934> or 0 will be processed based upon System Profile <INTERFACE VT REQUEST ID RANGE>
+	
+Engine Trace flag is set to <N>
+In Parallel Processing not activated
+	
+ENGINE PROCESSING
+-----------------
+VT Request Id: 66
+Oracle Concurrent Request Id: 20640
+Activity locked....
+Interface records to be processed by this engine run: 0
+Initialization....
+CACHE WORKING ARRAYS : DISABLED
+	
+Source Assignment Id <1232>
+Reporting Configuration errors....
+Transactions....
+Clearing down Source Assignment Id <1232>
+	
+Data Distributor <16-NOV-2021 09:40:22>
+End Data Distributor <16-NOV-2021 09:40:22>
+	
+Activity unlocked....
+	
+ENGINE SUMMARY
+--------------
+Interface records processed by this engine run: 0
+Status            Count
+--------------- -------
+Job Complete
+
+**********************************************************
+* Copyright 2021 Virtual Trader Ltd. All rights Reserved *
+**********************************************************'
+                '(L)og':
+                  value: '**********************************************************
+Created APEX Session (User ID: 1013496, Session ID: 3583415806003)
+**********************************************************'
+              schema:
+                type: string
+                example: pong
+        '400':
+          description: Bad Request
