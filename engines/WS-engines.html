@@ -1,0 +1,548 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Engines WS APIs</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>Engines WS APIs</h1>
+    <div class="app-desc">creation of engine data and running of the respective engine</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 0.1</div>
+    
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#RTT">RTT</a></h4>
+  <ul>
+  <li><a href="#enginesRttPost"><code><span class="http-method">post</span> /engines/rtt</code></a></li>
+  </ul>
+  <h4><a href="#SAE">SAE</a></h4>
+  <ul>
+  <li><a href="#enginesSaePost"><code><span class="http-method">post</span> /engines/sae</code></a></li>
+  </ul>
+  <h4><a href="#TRF">TRF</a></h4>
+  <ul>
+  <li><a href="#enginesTrfPost"><code><span class="http-method">post</span> /engines/trf</code></a></li>
+  </ul>
+
+  <h1><a name="RTT">RTT</a></h1>
+  <div class="method"><a name="enginesRttPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /engines/rtt</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">enginesRttPost</span>)</div>
+    <div class="method-notes">Web Service to pass data to and run the Real Time Engine</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#engines_rtt_body">engines_rtt_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+            <div class="param-desc"><span class="param-type">example: <code>{
+  &quot;value&quot; : {
+    &quot;RTTInbound&quot; : {
+      &quot;requestID&quot; : &quot;99999&quot;,
+      &quot;tableGroupID&quot; : 0,
+      &quot;removePriorRecords&quot; : &quot;N&quot;,
+      &quot;investigateErrors&quot; : &quot;Y&quot;,
+      &quot;ICPriceMandatory&quot; : &quot;N&quot;,
+      &quot;transactions&quot; : [ {
+        &quot;sourceAssignmentName&quot; : &quot;Vision Comms RT&quot;,
+        &quot;transactionTable&quot; : &quot;REAL TIME&quot;,
+        &quot;transactionType&quot; : &quot;TYPE&quot;,
+        &quot;transactionClass&quot; : &quot;CLASS&quot;,
+        &quot;transactionRef&quot; : &quot;MSS90687&quot;,
+        &quot;transactionID&quot; : 90988,
+        &quot;parentTrxID&quot; : 90985,
+        &quot;transactionDate&quot; : &quot;01-JAN-2021&quot;,
+        &quot;currencyCode&quot; : &quot;USD&quot;,
+        &quot;attribute1&quot; : &quot;01&quot;,
+        &quot;attribute2&quot; : &quot;03&quot;,
+        &quot;attribute3&quot; : &quot;Service&quot;,
+        &quot;enteredDR&quot; : 250,
+        &quot;enteredCR&quot; : 0
+      }, {
+        &quot;sourceAssignmentName&quot; : &quot;Vision Comms RT&quot;,
+        &quot;transactionTable&quot; : &quot;REAL TIME&quot;,
+        &quot;transactionType&quot; : &quot;TYPE&quot;,
+        &quot;transactionClass&quot; : &quot;CLASS&quot;,
+        &quot;transactionRef&quot; : &quot;MSS90690&quot;,
+        &quot;transactionID&quot; : 90989,
+        &quot;parentTrxID&quot; : 90985,
+        &quot;transactionDate&quot; : &quot;01-JAN-2021&quot;,
+        &quot;currencyCode&quot; : &quot;USD&quot;,
+        &quot;attribute1&quot; : &quot;01&quot;,
+        &quot;attribute2&quot; : &quot;03&quot;,
+        &quot;attribute3&quot; : &quot;Service&quot;,
+        &quot;enteredDR&quot; : 250,
+        &quot;enteredCR&quot; : 0
+      } ]
+    }
+  }
+}</code></span></div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#engines_sae_body">engines_sae_body</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "SAE" : [ { }, { } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A Real Time Engine error has occurred
+        <a href="#engines_sae_body">engines_sae_body</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: error response</div>
+    <pre class="example"><code>{&quot;RTTOutbound&quot;:{&quot;content&quot;:{&quot;errorCode&quot;:3502,&quot;errorMessage&quot;:&quot;Check Assignment Rules setup within the Assignment Control form. Also check the Tax Registration Lookup form&quot;}}}</code></pre>
+    <h4 class="field-label">201</h4>
+    Real Time Engine successfully run
+        <a href="#engines_sae_body">engines_sae_body</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: success response</div>
+    <pre class="example"><code>{&quot;RTTOutbound&quot;:[{&quot;legalName&quot;:&quot;Vision Trading (US)&quot;,&quot;interfaceID&quot;:9021,&quot;transactionRef&quot;:&quot;MSS90687&quot;,&quot;ICPrice&quot;:0,&quot;quantity&quot;:1,&quot;extended&quot;:0,&quot;VTResultsAttribute1&quot;:&quot;MSS90687&quot;,&quot;VTResultsAttribute20&quot;:1},{&quot;legalName&quot;:&quot;Vision Trading (US)&quot;,&quot;interfaceID&quot;:9026,&quot;transactionRef&quot;:&quot;MSS90690&quot;,&quot;ICPrice&quot;:0,&quot;quantity&quot;:1,&quot;extended&quot;:0,&quot;VTResultsAttribute1&quot;:&quot;MSS90690&quot;,&quot;VTResultsAttribute20&quot;:1}]}</code></pre>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="SAE">SAE</a></h1>
+  <div class="method"><a name="enginesSaePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /engines/sae</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">enginesSaePost</span>)</div>
+    <div class="method-notes">Web Service to pass data to and run the Soft Assignment Engine</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#engines_sae_body">engines_sae_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+            <div class="param-desc"><span class="param-type">example: <code>{
+  &quot;value&quot; : {
+    &quot;SAEInbound&quot; : {
+      &quot;trace&quot; : &quot;Y&quot;,
+      &quot;createRow&quot; : &quot;Y&quot;,
+      &quot;updateExistingRow&quot; : &quot;N&quot;,
+      &quot;currencyCode&quot; : &quot;USD&quot;,
+      &quot;parentTrxID&quot; : &quot;999992&quot;,
+      &quot;transactionID&quot; : &quot;99999&quot;,
+      &quot;transactionRef&quot; : &quot;A-99999&quot;,
+      &quot;transactionTable&quot; : &quot;MANUAL_REQ&quot;,
+      &quot;transactionType&quot; : &quot;REQ&quot;,
+      &quot;transactionClass&quot; : &quot;ALL&quot;,
+      &quot;transactionDate&quot; : &quot;04-JAN-2021&quot;,
+      &quot;sourceAssignmentName&quot; : &quot;Test Harness&quot;,
+      &quot;attribute1&quot; : 1003,
+      &quot;attribute2&quot; : 1009,
+      &quot;attribute3&quot; : 1234,
+      &quot;attribute4&quot; : &quot;Product&quot;,
+      &quot;attribute5&quot; : &quot;AR&quot;,
+      &quot;attribute6&quot; : &quot;US&quot;,
+      &quot;attribute7&quot; : &quot;IT&quot;,
+      &quot;attribute8&quot; : &quot;&quot;,
+      &quot;attribute9&quot; : &quot;Standard-NL&quot;,
+      &quot;attribute10&quot; : 48
+    }
+  }
+}</code></span></div>    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A Soft Assignment Engine error has occurred
+        <a href="#"></a>
+    <h4 class="field-label">201</h4>
+    Soft Assignment Engine successfully run
+        <a href="#engines_sae_body">engines_sae_body</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: success response</div>
+    <pre class="example"><code>{&quot;SAEOutbound&quot;:{&quot;transactionRef&quot;:&quot;A-99999&quot;,&quot;interfaceID&quot;:0,&quot;sequence&quot;:1,&quot;tradingSet&quot;:&quot;SAE Buy/Sell&quot;,&quot;tradingSetID&quot;:&quot;101&quot;,&quot;priceMethod&quot;:&quot;SAE Pricing General PM&quot;,&quot;priceMethodID&quot;:0,&quot;attributeID&quot;:11011,&quot;ICPrice&quot;:100,&quot;ICUnitPrice&quot;:20,&quot;ICCurrency&quot;:&quot;USD&quot;,&quot;adjustmentRate&quot;:0.04,&quot;adjustmentRateID&quot;:1.710108907001E7,&quot;ownerCompany&quot;:&quot;01&quot;,&quot;partnerCompany&quot;:&quot;103&quot;,&quot;attribute1&quot;:&quot;USD&quot;}}</code></pre>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="TRF">TRF</a></h1>
+  <div class="method"><a name="enginesTrfPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /engines/trf</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">enginesTrfPost</span>)</div>
+    <div class="method-notes">Web Service to pass data to and run the Transformation Layer Engine</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#engines_trf_body">engines_trf_body</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+            <div class="param-desc"><span class="param-type">example: <code>{
+  &quot;value&quot; : {
+    &quot;TRFInbound&quot; : {
+      &quot;vtDataSourceName&quot; : &quot;UK IC RECON&quot;,
+      &quot;fileID&quot; : 554444,
+      &quot;captureType&quot; : &quot;WS&quot;,
+      &quot;transactions&quot; : [ {
+        &quot;vtTransactionRef&quot; : &quot;MSS-TEST001&quot;,
+        &quot;vtTransactionId&quot; : &quot;123456&quot;,
+        &quot;vtTransactionDate&quot; : &quot;05-MAR-2021&quot;,
+        &quot;column1&quot; : &quot;JE Ref&quot;,
+        &quot;column2&quot; : 100,
+        &quot;column3&quot; : &quot;USD&quot;,
+        &quot;column4&quot; : &quot;2021-03-05&quot;,
+        &quot;column5&quot; : &quot;JE Desc&quot;,
+        &quot;column6&quot; : &quot;IC Ref&quot;,
+        &quot;column7&quot; : &quot;Seg1&quot;,
+        &quot;column8&quot; : &quot;Seg2&quot;,
+        &quot;column9&quot; : &quot;Seg3&quot;,
+        &quot;column10&quot; : &quot;Seg4&quot;,
+        &quot;column11&quot; : &quot;Seg5&quot;,
+        &quot;column20&quot; : &quot;50&quot;,
+        &quot;column30&quot; : &quot;File Name&quot;,
+        &quot;column31&quot; : 554443,
+        &quot;column40&quot; : &quot;01-JAN-2021&quot;,
+        &quot;column50&quot; : &quot;USD&quot;,
+        &quot;column60&quot; : &quot;01&quot;,
+        &quot;column70&quot; : &quot;03&quot;,
+        &quot;column80&quot; : &quot;Service&quot;,
+        &quot;column90&quot; : 250,
+        &quot;column100&quot; : 0
+      }, {
+        &quot;vtTransactionRef&quot; : &quot;MSS-TEST002&quot;,
+        &quot;vtTransactionId&quot; : &quot;123457&quot;,
+        &quot;vtTransactionDate&quot; : &quot;05-MAR-2021&quot;,
+        &quot;column1&quot; : &quot;JE Ref&quot;,
+        &quot;column2&quot; : 200,
+        &quot;column3&quot; : &quot;GBP&quot;,
+        &quot;column4&quot; : &quot;2021-03-05&quot;,
+        &quot;column5&quot; : &quot;JE Desc&quot;,
+        &quot;column6&quot; : &quot;IC Ref&quot;,
+        &quot;column7&quot; : &quot;Seg1&quot;,
+        &quot;column8&quot; : &quot;Seg2&quot;,
+        &quot;column9&quot; : &quot;Seg3&quot;,
+        &quot;column10&quot; : &quot;Seg4&quot;,
+        &quot;column11&quot; : &quot;Seg5&quot;,
+        &quot;column20&quot; : &quot;50&quot;,
+        &quot;column30&quot; : &quot;File Name&quot;,
+        &quot;column31&quot; : 554443,
+        &quot;column40&quot; : &quot;01-JAN-2021&quot;,
+        &quot;column50&quot; : &quot;USD&quot;,
+        &quot;column60&quot; : &quot;01&quot;,
+        &quot;column70&quot; : &quot;03&quot;,
+        &quot;column80&quot; : &quot;Service&quot;,
+        &quot;column90&quot; : 250,
+        &quot;column100&quot; : 0
+      } ]
+    }
+  }
+}</code></span></div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#engines_sae_body">engines_sae_body</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "SAE" : [ { }, { } ]
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    A Transformation Layer Engine error has occurred#
+        <a href="#engines_sae_body">engines_sae_body</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: success response</div>
+    <pre class="example"><code>{&quot;TRFOutbound&quot;:&quot;headerCtlID:115503&quot;}</code></pre>
+    <h4 class="field-label">201</h4>
+    Transformation Layer Engine successfully run
+        <a href="#engines_sae_body">engines_sae_body</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: success response</div>
+    <pre class="example"><code>{&quot;TRFOutbound&quot;:&quot;headerCtlID:115501&quot;}</code></pre>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#engines_rtt_body"><code>engines_rtt_body</code></a></li>
+    <li><a href="#engines_sae_body"><code>engines_sae_body</code></a></li>
+    <li><a href="#engines_trf_body"><code>engines_trf_body</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="engines_rtt_body"><code>engines_rtt_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">RTT (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="engines_sae_body"><code>engines_sae_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">SAE (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="engines_trf_body"><code>engines_trf_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">TRF (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">array[Object]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
