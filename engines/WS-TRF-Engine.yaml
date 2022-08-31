@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Engines WS APIs
-  description: creation of engine data and running of the respective engine
+  title: Transformation Layer Engine WS APIs
+  description: creation of Transformation Layer Engine data and running of the engine
   version: '0.1'
 tags:
   - name: TRF
