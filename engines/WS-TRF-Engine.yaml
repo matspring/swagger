@@ -1,0 +1,120 @@
+openapi: 3.0.1
+info:
+  title: Transformation Layer Engine WS APIs
+  description: creation of Transformation Layer Engine data and running of the engine
+  version: '0.1'
+tags:
+  - name: TRF
+    description: Transformation Layer Engine
+paths:
+  /engines/trf:
+    post:
+      tags:
+        - TRF
+      description: Web Service to pass data to and run the Transformation Layer Engine
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TRF:
+                  type: array
+                  items:
+                    type: object
+            examples:
+              'sample':
+                value:
+                  TRFInbound:
+                    vtDataSourceName: UK IC RECON
+                    fileID: 554444
+                    captureType: WS
+                    transactions:
+                      - vtTransactionRef: MSS-TEST001
+                        vtTransactionId: '123456'
+                        vtTransactionDate: 05-MAR-2021
+                        column1: JE Ref
+                        column2: 100
+                        column3: USD
+                        column4: '2021-03-05'
+                        column5: JE Desc
+                        column6: IC Ref
+                        column7: Seg1
+                        column8: Seg2
+                        column9: Seg3
+                        column10: Seg4
+                        column11: Seg5
+                        column20: '50'
+                        column30: File Name
+                        column31: 554443
+                        column40: 01-JAN-2021
+                        column50: USD
+                        column60: '01'
+                        column70: '03'
+                        column80: Service
+                        column90: 250
+                        column100: 0
+                      - vtTransactionRef: MSS-TEST002
+                        vtTransactionId: '123457'
+                        vtTransactionDate: 05-MAR-2021
+                        column1: JE Ref
+                        column2: 200
+                        column3: GBP
+                        column4: '2021-03-05'
+                        column5: JE Desc
+                        column6: IC Ref
+                        column7: Seg1
+                        column8: Seg2
+                        column9: Seg3
+                        column10: Seg4
+                        column11: Seg5
+                        column20: '50'
+                        column30: File Name
+                        column31: 554443
+                        column40: 01-JAN-2021
+                        column50: USD
+                        column60: '01'
+                        column70: '03'
+                        column80: Service
+                        column90: 250
+                        column100: 0
+      responses:
+        '201':
+          description: Transformation Layer Engine successfully run
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                      type: object
+              examples:
+                'success response':
+                  value:
+                    TRFOutbound:
+                      headerCtlID:115501
+        '400':
+          description: Bad Request
+        '200':
+          description: A Transformation Layer Engine error has occurred#
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SAE:
+                    type: array
+                    items:
+                       type: object
+              examples:
+                'success response':
+                  value:
+                    TRFOutbound:
+                      headerCtlID:115503
+          headers:
+            XX-ERROR-MSG:
+              schema:
+                type: string
+              description: Duplicate Data Source/File ID (EBS SOURCE 1/554446)
